@@ -3,7 +3,7 @@
 Eine sehr Anfänger freundliche Anleitung :
 
 Vorraussetzung: 
-- Umgang mit den Terminal und Nano 
+- Umgang mit den Terminal ( sudo ) und Nano 
 - Ubuntu 24.04 Server
 - Ansible ( falls nicht vorhanden - install mit : apt install ansible -y )
 - erstelle eine Datei : nano inst_home.yml 
