@@ -36,3 +36,10 @@ Schritte der Installation im Playbook :
     Installiere Home Assistant: Installiert Home Assistant im virtuellen Environment.
     Systemd-Dienst einrichten: Erstellt eine systemd-Dienstdatei, sodass Home Assistant automatisch gestartet wird.
     Start und Aktivierung des Dienstes: Startet den Home Assistant-Dienst und aktiviert ihn für den automatischen Start bei jedem Systemneustart.
+
+
+
+Für das Ganjos Automation projekt: 
+Anpassen der Konfig Datei Anleitung ( Terminal )
+- ll /home/homeassistant/.homeassistant/configuration.yaml
+   - in diesen ordner -  rest kommt morgen g8n
