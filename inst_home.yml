@@ -1,46 +1,89 @@
 ---
 - name: Install Home Assistant on Ubuntu 24.04
   hosts: localhost
-  gather_facts: false
+  become: yes
 
   tasks:
-    - name: Update apt cache
+    - name: Update APT package index
       apt:
         update_cache: yes
 
-    - name: Install required packages
+    - name: Install required system packages
       apt:
-        name: "{{ item }}"
+        name:
+          - python3
+          - python3-venv
+          - python3-pip
+          - libffi-dev
+          - libssl-dev
+          - libjpeg-dev
+          - zlib1g-dev
+          - autoconf
+          - build-essential
+          - libopenjp2-7
+          - libturbojpeg0-dev
+          - libtiff-dev   # Geändertes Paket
+          - tzdata
         state: present
-      with_items:
-        - python3
-        - python3-venv
-        - python3-pip
-        - libffi-dev
-        - libssl-dev
-        - zlib1g-dev
-        - libjpeg-dev
-        - libopenzwave1.5-dev
-        - python3-dev
-        - libudev-dev
 
-    - name: Create virtual environment
-      command: python3 -m venv /opt/homeassistant
-      args:
-        creates: /opt/homeassistant
+    - name: Create a user for Home Assistant
+      user:
+        name: homeassistant
+        system: yes
+        create_home: yes
+        shell: /bin/bash
 
-    - name: Activate virtual environment
-      command: source /opt/homeassistant/bin/activate
+    - name: Create Home Assistant directory
+      file:
+        path: /srv/homeassistant
+        state: directory
+        owner: homeassistant
+        group: homeassistant
+
+    - name: Create a virtual environment for Home Assistant
+      command: python3 -m venv /srv/homeassistant
+      become_user: homeassistant
+
+    - name: Upgrade pip to the latest version
+      pip:
+        name: pip
+        state: latest
+        executable: /srv/homeassistant/bin/pip
+      become_user: homeassistant
 
     - name: Install Home Assistant
       pip:
         name: homeassistant
+        virtualenv: /srv/homeassistant
+        virtualenv_command: /srv/homeassistant/bin/python3
+      become_user: homeassistant
 
-    - name: Deactivate virtual environment
-      command: deactivate
+    - name: Create systemd service for Home Assistant
+      copy:
+        dest: /etc/systemd/system/home-assistant@homeassistant.service
+        content: |
+          [Unit]
+          Description=Home Assistant
+          After=network-online.target
 
-    - name: Start Home Assistant service
-      command: /opt/homeassistant/bin/hass
+          [Service]
+          Type=simple
+          User=homeassistant
+          ExecStart=/srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
+          Restart=on-failure
 
-    - name: Display Home Assistant login credentials
-      command: echo "Home Assistant login: http://localhost:8123"
+          [Install]
+          WantedBy=multi-user.target
+      notify: Restart Home Assistant
+
+    - name: Enable and start Home Assistant service
+      systemd:
+        name: home-assistant@homeassistant
+        enabled: yes
+        state: started
+
+  handlers:
+    - name: Restart Home Assistant
+      systemd:
+        name: home-assistant@homeassistant
+        state: restarted
