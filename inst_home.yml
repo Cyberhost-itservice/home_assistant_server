@@ -1,0 +1,46 @@
+---
+- name: Install Home Assistant on Ubuntu 24.04
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install required packages
+      apt:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - python3
+        - python3-venv
+        - python3-pip
+        - libffi-dev
+        - libssl-dev
+        - zlib1g-dev
+        - libjpeg-dev
+        - libopenzwave1.5-dev
+        - python3-dev
+        - libudev-dev
+
+    - name: Create virtual environment
+      command: python3 -m venv /opt/homeassistant
+      args:
+        creates: /opt/homeassistant
+
+    - name: Activate virtual environment
+      command: source /opt/homeassistant/bin/activate
+
+    - name: Install Home Assistant
+      pip:
+        name: homeassistant
+
+    - name: Deactivate virtual environment
+      command: deactivate
+
+    - name: Start Home Assistant service
+      command: /opt/homeassistant/bin/hass
+
+    - name: Display Home Assistant login credentials
+      command: echo "Home Assistant login: http://localhost:8123"
