@@ -1,18 +1,22 @@
 **Ansible-Playbook für die Installation eines Home Assistant-Servers local auf einen Ubuntu 24.04 Server**
 
-Einmal Anfänger freundlich:
+Eine sehr Anfänger freundliche Anleitung :
 
 Vorraussetzung: 
 - Umgang mit den Terminal und Nano 
 - Ubuntu 24.04 Server
 - Ansible ( falls nicht vorhanden - install mit : apt install ansible -y )
 - erstelle eine Datei : nano inst_home.yml 
-- kopiere den Code in die erstellte Datei und speichern
+- kopiere den Code von inst_home.yml in die erstellte Datei und speichern
 - Ausführen des Ansible Playbook: ansible-playbook inst_home.yml
+
+![Bildschirmfoto vom 2024-09-04 23-01-54](https://github.com/user-attachments/assets/6b34dbd7-f739-47c0-89e2-442d525a7d4a)
+
 
 - nach dem ausführen des Playbooks sollte der Home Assistant Server über eure IP Adresse des Server erreichbar sein. bspl. 192.168.1.1:8123 
 
-Bild von Homeserver start
+![Bildschirmfoto vom 2024-09-04 23-14-27](https://github.com/user-attachments/assets/f86bd3b2-d9fb-4361-b73a-3a6f32e64100)
+
 
 
 Beschreibung des Playbooks. 
