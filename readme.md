@@ -1,7 +1,7 @@
 **Ansible-Playbook für die Installation eines Home Assistant-Servers local auf einen Ubuntu 24.04 Server**
 
 Einmal Anfänger freundlich:
-/
+
 Vorraussetzung: 
 - Umgang mit den Terminal und Nano 
 - Ubuntu 24.04 Server
