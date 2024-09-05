@@ -19,7 +19,7 @@ Vorraussetzung:
 
 Beschreibung des Playbooks. 
 
-Dieses Playbook führt die Installation von Home Assistant auf Ubuntu 24.04 durch. Es werden die erforderlichen Pakete installiert, ein virtuelles Umgebung erstellt, Home Assistant installiert und der Dienst gestartet. Am Ende werden die Login-Daten für Home Assistant angezeigt. 
+Dieses Playbook führt die Installation von Home Assistant auf Ubuntu 24.04 durch. Es werden die erforderlichen Pakete installiert, ein virtuelles Umgebung erstellt, Home Assistant installiert und der Dienst gestartet. 
 Bitte beachten Sie, dass Sie möglicherweise zusätzliche Konfigurationsschritte vornehmen müssen, je nach den spezifischen Anforderungen Ihres Home Assistant-Setups.
 
 
