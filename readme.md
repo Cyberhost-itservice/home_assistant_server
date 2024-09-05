@@ -11,7 +11,7 @@ Vorraussetzung:
 ![Bildschirmfoto vom 2024-09-04 23-01-54](https://github.com/user-attachments/assets/6b34dbd7-f739-47c0-89e2-442d525a7d4a)
 
 
-- nach dem ausführen des Playbooks sollte der Home Assistant Server über eure IP Adresse des Server erreichbar sein. Zum bspl bei war es dann 192.168.178.74:8123 
+- nach dem ausführen des Playbooks sollte der Home Assistant Server über eure IP Adresse des Server erreichbar sein. Zum bspl bei war es dann http://192.168.178.74:8123 
 
 ![Bildschirmfoto vom 2024-09-04 23-14-27](https://github.com/user-attachments/assets/f86bd3b2-d9fb-4361-b73a-3a6f32e64100)
 
