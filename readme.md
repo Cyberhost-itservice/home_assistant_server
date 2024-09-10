@@ -1,6 +1,6 @@
 **Ansible-Playbook für die Installation eines Home Assistant-Servers -> Lokal <- auf einen Ubuntu 24.04 Server**
 
-Vorraussetzung: 
+Vorraussetzung:  --> Die Datei nur aus dem Ordner easy benutzen. <-- 
 - Umgang mit den Terminal ( sudo ) und Nano 
 - Ubuntu 24.04 Server Installiert 
 - Ansible ( falls nicht vorhanden - install mit : apt install ansible -y )
