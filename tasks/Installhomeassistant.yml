@@ -1,0 +1,38 @@
+# install the Home Assistant Server
+
+    - name: Install Home Assistant
+      pip:
+        name: homeassistant
+        virtualenv: /srv/homeassistant
+        virtualenv_command: /srv/homeassistant/bin/python3
+      become_user: homeassistant
+
+    - name: Create systemd service for Home Assistant
+      copy:
+        dest: /etc/systemd/system/home-assistant@homeassistant.service
+        content: |
+          [Unit]
+          Description=Home Assistant
+          After=network-online.target
+
+          [Service]
+          Type=simple
+          User=homeassistant
+          ExecStart=/srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
+          Restart=on-failure
+
+          [Install]
+          WantedBy=multi-user.target
+      notify: Restart Home Assistant
+
+    - name: Enable and start Home Assistant service
+      systemd:
+        name: home-assistant@homeassistant
+        enabled: yes
+        state: started
+
+  handlers:
+    - name: Restart Home Assistant
+      systemd:
+        name: home-assistant@homeassistant
+        state: restarted
