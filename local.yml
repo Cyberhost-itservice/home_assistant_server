@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - include: tasks/packages.yml
+    - include: tasks/create_user_directory.yml
+    - include: tasks/installhomeassitant.yml
+    - include: tasks/config.yml
+
+
+
+
+
