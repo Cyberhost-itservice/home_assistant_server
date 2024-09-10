@@ -1,0 +1,10 @@
+# Download the config from File | Server | ..........
+
+
+- name: Download the Config 
+
+
+
+
+- name: Copy Confg in the Home Assistant Server 
+
