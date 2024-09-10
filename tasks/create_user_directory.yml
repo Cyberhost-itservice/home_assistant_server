@@ -1,0 +1,24 @@
+ - name: Create User for Home Assistant
+   user: 
+     name: homeassistant
+     system: yes
+     create_home: yes
+     shell: /bin/bash
+      
+ - name: Create Home Assistant directory
+   file:
+     path: /srv/homeassistant
+     state: directory
+     owner: homeassistant
+     group: homeassistant
+
+ - name: Create a virtual environment for Home Assistant
+    command: python3 -m venv /srv/homeassistant
+    become_user: homeassistant
+
+ - name: Upgrade pip to the latest version
+     pip:
+       name: pip
+       state: latest
+       executable: /srv/homeassistant/bin/pip
+     become_user: homeassistant
