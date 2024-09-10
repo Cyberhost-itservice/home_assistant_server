@@ -4,10 +4,10 @@
   become: true
 
   tasks:
-    - include: tasks/packages.yml
-    - include: tasks/create_user_directory.yml
-    - include: tasks/installhomeassitant.yml
-    - include: tasks/config.yml
+    - include: tasks/packages.yml  #Step_1
+    - include: tasks/create_user_directory.yml #Step_2
+    - include: tasks/installhomeassitant.yml #Step_3
+    - include: tasks/config.yml  #Step_4
 
 
 
