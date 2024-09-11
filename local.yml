@@ -8,7 +8,8 @@
     - include: tasks/create_user_directory.yml #Step_2
     - include: tasks/installhomeassitant.yml #Step_3
     - include: tasks/config.yml  #Step_4
-
+    - include: tasks/ganjosconf.yml #Step_5
+    
 
 
 
