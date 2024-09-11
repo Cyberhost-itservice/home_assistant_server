@@ -42,5 +42,4 @@ Schritte der Installation im Playbook :
 
 Für das Ganjos Automation projekt: 
 Anpassen der Konfig Datei Anleitung ( Terminal )
-- ll /home/homeassistant/.homeassistant/configuration.yaml
-   - in diesen ordner -  rest kommt morgen g8n
+- nano /home/homeassistant/.homeassistant/configuration.yaml
