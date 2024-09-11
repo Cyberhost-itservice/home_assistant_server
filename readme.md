@@ -8,7 +8,7 @@ Vorraussetzung:
 - Ubuntu 24.04 Server Installiert ist ( als Virtuelle Machine )  
 - Ansible ( falls nicht vorhanden - install mit : apt install ansible -y )
 - erstelle eine Datei : nano inst_home.yml 
-- kopiere den Code von inst_home.yml von dieser repo in die erstellte Datei und speichern ( URL: https://github.com/Cyberhost-itservice/home_assistant_server/blob/main/easy/inst_home.yml ) 
+- kopiere den Code von inst_home.yml von dieser repo in die erstellte Datei und speichern ( URL: https://raw.githubusercontent.com/Cyberhost-itservice/home_assistant_server/main/easy/inst_home.yml ) 
 - Ausführen des Ansible Playbook: ansible-playbook inst_home.yml
 
 ![Bildschirmfoto vom 2024-09-04 23-01-54](https://github.com/user-attachments/assets/6b34dbd7-f739-47c0-89e2-442d525a7d4a)
